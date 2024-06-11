@@ -37,7 +37,7 @@ namespace Kolos2.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("Backpacks");
+                    b.ToTable("backpacks");
                 });
 
             modelBuilder.Entity("Kolos2.Models.character_titles", b =>
@@ -55,7 +55,7 @@ namespace Kolos2.Migrations
 
                     b.HasIndex("TitleId");
 
-                    b.ToTable("CharacterTitles");
+                    b.ToTable("characterTitles");
                 });
 
             modelBuilder.Entity("Kolos2.Models.characters", b =>
@@ -80,7 +80,7 @@ namespace Kolos2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Characters");
+                    b.ToTable("characters");
                 });
 
             modelBuilder.Entity("Kolos2.Models.itmes", b =>
@@ -99,7 +99,7 @@ namespace Kolos2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Items");
+                    b.ToTable("items");
                 });
 
             modelBuilder.Entity("Kolos2.Models.titles", b =>
@@ -115,7 +115,7 @@ namespace Kolos2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Titles");
+                    b.ToTable("titles");
                 });
 
             modelBuilder.Entity("Kolos2.Models.backpacks", b =>

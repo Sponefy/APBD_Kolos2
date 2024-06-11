@@ -11,11 +11,11 @@ public class KolosContext : DbContext
     
     // Przykład:
     // public DbSet<Prescription> Presciptions { get; set; }
-    public DbSet<titles> Titles { get; set; }
-    public DbSet<character_titles> CharacterTitles { get; set; }
-    public DbSet<characters> Characters { get; set; }
-    public DbSet<backpacks> Backpacks { get; set; }
-    public DbSet<itmes> Items { get; set; }
+    public DbSet<titles> titles { get; set; }
+    public DbSet<character_titles> characterTitles { get; set; }
+    public DbSet<characters> characters { get; set; }
+    public DbSet<backpacks> backpacks { get; set; }
+    public DbSet<itmes> items { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

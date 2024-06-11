@@ -2,7 +2,7 @@ using Kolos2.Data;
 using Kolos2.Dtos;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
-
+using Kolos2.Models;
 namespace Kolos2.Services;
 
 public class CharacterService : ICharacterService
@@ -16,7 +16,7 @@ public class CharacterService : ICharacterService
 
     public async Task<CharacterDto?> GetCharacter(int id)
     {
-        var character = await _context.Characters
+        var character = await _context.characters
             .Where(x => x.Id == id)
             .Select(x => new CharacterDto
             {
@@ -27,6 +27,26 @@ public class CharacterService : ICharacterService
                 MaxWeight = x.MaxWeight
             }).SingleOrDefaultAsync();
 
+        if (character == null)
+        {
+            return null;
+        }
+
+        character.Backpacks = await _context.backpacks
+            .Where(x => x.CharacterId == id)
+            .Select(x => new BackpackDto()
+            {
+                Amount = x.Amount
+            }).ToListAsync();
+
+
+        character.CharacterTitles = await _context.characterTitles
+            .Where(x => x.CharacterId == id)
+            .Select(x => new CharacterTitleDto()
+            {
+                AcquiredAt = x.AcquiredAt
+            }).ToListAsync();
+        
         return character;
     }
 }
