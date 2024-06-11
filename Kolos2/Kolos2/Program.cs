@@ -1,4 +1,5 @@
 using Kolos2.Data;
+using Kolos2.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,8 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 // Przykład dodawnia Services
 // builder.Services.AddScoped<IMedicalService, MedicalService>();
+builder.Services.AddScoped<ICharacterService, CharacterService>();
+
 builder.Services.AddControllers();
 builder.Services.AddDbContext<KolosContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

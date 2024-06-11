@@ -11,6 +11,11 @@ public class KolosContext : DbContext
     
     // Przykład:
     // public DbSet<Prescription> Presciptions { get; set; }
+    public DbSet<titles> Titles { get; set; }
+    public DbSet<character_titles> CharacterTitles { get; set; }
+    public DbSet<characters> Characters { get; set; }
+    public DbSet<backpacks> Backpacks { get; set; }
+    public DbSet<itmes> Items { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
